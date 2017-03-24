@@ -4,13 +4,11 @@
 
 ## Prerequisites
 
--   Topics with which developers should be familiar with.
--   Prerequisites are "just-in-time", so if I have a prerequisite that mentions
-    Sass, I would **not** need to include CSS as a prerequisite.
--   [Links to previous materials](https://www.github.com/ga-wdi-boston/example)
-    are often useful.
--   In a challenge, it is useful to link to reference material, such as talk
-    repositories.
+-   [Fizz buzz](https://en.wikipedia.org/wiki/Fizz_buzz)
+-   [Iterators and generators - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
+-   [function* - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+-   [Generator - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+-   [yield - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield)
 
 ## Instructions
 
