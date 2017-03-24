@@ -41,8 +41,9 @@ object. The returned iterator object has a method called `next()` that returns
 an object containing two keys, `done` and `value`. The value of `done` is a
 boolean value, `true` or `false`, that indicates whether the iterator has
 finished returning all of its the values or not. The value of `value` is the
-`yield`ed value from the iterator. It is possible to create finite and infinite
-generators.
+`yield`ed value from the iterator. If a finite generator's values have been
+exhausted (i.e., `done` is `true`), then `value` will be `undefined`. It is
+possible to create finite and infinite generators.
 
 Here is an example of a finite generator that takes a string as an input, splits
 it using whitespace as delimiters, strips out punctuation, converts every word
