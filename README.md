@@ -27,9 +27,9 @@ cloning](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone).
 
 ## Fizz Buzz
 
-Fizz Buzz is game used to teach children division by having them group up and
+Fizz Buzz is a game used to teach children division by having them group up and
 count up from one. If the number is divisible by three, then "fizz" is said
-instead of the number. Similarly, if the number is divisible five, then "buzz"
+instead of the number. Similarly, if the number is divisible by five, then "buzz"
 is said instead. If the number is divisible by both three and five, then "fizz
 buzz" is said, and if the number isn't divisible by either three or five, then
 the number is said.
@@ -40,7 +40,7 @@ JavaScript generator functions are special functions that return an iterator
 object. The returned iterator object has a method called `next()` that returns
 an object containing two keys, `done` and `value`. The value of `done` is a
 boolean value, `true` or `false`, that indicates whether the iterator has
-finished returning all of its the values or not. The value of `value` is the
+finished returning all of its values or not. The value of `value` is the
 `yield`ed value from the iterator. If a finite generator's values have been
 exhausted (i.e., `done` is `true`), then `value` will be `undefined`. It is
 possible to create finite and infinite generators.
@@ -105,7 +105,7 @@ yielded. Assume that all inputs are valid (natural numbers).
 
 You should be running `grunt nag` before diagnosing any bugs, since it finds
 some of the most common sources of errors. After `grunt nag` passes, you should
-run `grunt test` to run the included tests. Tests will tell you whether of not
+run `grunt test` to run the included tests. Tests will tell you whether or not
 you've met these requirements.
 
 ## Bonus
