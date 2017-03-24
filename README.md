@@ -111,7 +111,8 @@ you've met these requirements.
 ## Bonus
 
 Modify `fizzBuzzGenerator` so that it acts as an infinite generator if no
-argument is passed in.
+argument is passed in. To run the test for this bonus, open
+`spec/challenge.spec.js` and change `xdescribe` to `describe` on line 45.
 
 ## Tasks
 
