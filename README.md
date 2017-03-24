@@ -25,6 +25,15 @@ You may wish to refer to [FAQs](https://github.com/ga-wdi-boston/meta/wiki/)
 related to [forking,
 cloning](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone).
 
+## Fizz Buzz
+
+Fizz Buzz is game used to teach children division by having them group up and
+count up from one. If the number is divisible by three, then "fizz" is said
+instead of the number. Similarly, if the number is divisible five, then "buzz"
+is said instead. If the number is divisible by both three and five, then "fizz
+buzz" is said, and if the number isn't divisible by either three or five, then
+the number is said.
+
 ## Requirements
 
 Describe behavioral requirements as you'll be using them in tests. That is,
