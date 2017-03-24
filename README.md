@@ -96,10 +96,12 @@ for (let i = 0; i < 10; i++) {
 
 ## Requirements
 
-Write an infinite generator function, `fizzBuzzGenerator`, that, beginning from
+Write a finite generator function, `fizzBuzzGenerator`, that, beginning from
 1, yields 'Fizz' if the number is divisible by 3, 'Buzz' if the number is
 divisible by 5, 'Fizz Buzz' if the number is divisible by 15, and the number
-itself if none of the previous conditions are met.
+itself if none of the previous conditions are met. The generator function should
+take a parameter, `max`, that determines the maximum value that should be
+yielded. Assume that all inputs are valid (natural numbers).
 
 You should be running `grunt nag` before diagnosing any bugs, since it finds
 some of the most common sources of errors. After `grunt nag` passes, you should
