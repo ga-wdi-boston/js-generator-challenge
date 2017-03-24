@@ -110,10 +110,8 @@ you've met these requirements.
 
 ## Bonus
 
-Bonuses are described after the requirements, if included. They should be worked
-on **only after** passing requirements.
-
-Sometimes, we ask questions that promote thinking critically about code.
+Modify `fizzBuzzGenerator` so that it acts as an infinite generator if no
+argument is passed in.
 
 ## Tasks
 
