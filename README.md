@@ -34,6 +34,65 @@ is said instead. If the number is divisible by both three and five, then "fizz
 buzz" is said, and if the number isn't divisible by either three or five, then
 the number is said.
 
+## JavaScript Generators
+
+JavaScript generator functions are special functions that return an iterator
+object. The returned iterator object has a method called `next()` that returns
+an object containing two keys, `done` and `value`. The value of `done` is a
+boolean value, `true` or `false`, that indicates whether the iterator has
+finished returning all of its the values or not. The value of `value` is the
+`yield`ed value from the iterator. It is possible to create finite and infinite
+generators.
+
+Here is an example of a finite generator that takes a string as an input, splits
+it using whitespace as delimiters, strips out punctuation, converts every word
+to lowercase, and yields each word on successive iterations.
+
+```javascript
+const wordGenerator = function * (string) {
+  const words = string.split(/\s+/)
+                      .map(word => word.replace(/\W+/, ''))
+                      .map(word => word.toLowerCase())
+
+  for (const word of words) {
+    yield word
+  }
+}
+
+const words = wordGenerator('Hello, World!  This is a finite generator.')
+
+let word = words.next()
+
+do {
+  console.log(word.value)
+
+  word = words.next()
+} while (!word.done)
+```
+
+Here is an example of an infinite generator that returns natural numbers on each
+iteration.
+
+```javascript
+const naturalNumberGenerator = function * () {
+  let number = 1
+
+  while (true) {
+    yield number++
+  }
+}
+
+const naturalNumbers = naturalNumberGenerator()
+
+let naturalNumber = naturalNumbers.next()
+
+for (let i = 0; i < 10; i++) {
+  console.log(naturalNumber.value)
+
+  naturalNumber = naturalNumbers.next()
+}
+```
+
 ## Requirements
 
 Describe behavioral requirements as you'll be using them in tests. That is,
