@@ -1,23 +1,14 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Challenge Template
-
-Use this template to structure your READMEs for diagnostics.
-
-Be sure to include a recent [`LICENSE`](LICENSE) and Markdown linter
-configuration ([`.remarkrc`](.remarkrc)). Also, include an appropriate
-`.gitignore`; these are usually found in specific technology templates, for
-example [js-template](https://www.github.com/ga-wdi-boston/js-template).
+# JavaScript: Generator Challenge
 
 ## Prerequisites
 
--   Topics with which developers should be familiar with.
--   Prerequisites are "just-in-time", so if I have a prerequisite that mentions
-    Sass, I would **not** need to include CSS as a prerequisite.
--   [Links to previous materials](https://www.github.com/ga-wdi-boston/example)
-    are often useful.
--   In a challenge, it is useful to link to reference material, such as talk
-    repositories.
+-   [Fizz buzz](https://en.wikipedia.org/wiki/Fizz_buzz)
+-   [Iterators and generators - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
+-   [function* - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+-   [Generator - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+-   [yield - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield)
 
 ## Instructions
 
@@ -34,25 +25,94 @@ You may wish to refer to [FAQs](https://github.com/ga-wdi-boston/meta/wiki/)
 related to [forking,
 cloning](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone).
 
+## Fizz Buzz
+
+Fizz Buzz is a game used to teach children division by having them group up and
+count up from one. If the number is divisible by three, then "fizz" is said
+instead of the number. Similarly, if the number is divisible by five, then "buzz"
+is said instead. If the number is divisible by both three and five, then "fizz
+buzz" is said, and if the number isn't divisible by either three or five, then
+the number is said.
+
+## JavaScript Generators
+
+JavaScript generator functions are special functions that return an iterator
+object. The returned iterator object has a method called `next()` that returns
+an object containing two keys, `done` and `value`. The value of `done` is a
+boolean value, `true` or `false`, that indicates whether the iterator has
+finished returning all of its values or not. The value of `value` is the
+`yield`ed value from the iterator. If a finite generator's values have been
+exhausted (i.e., `done` is `true`), then `value` will be `undefined`. It is
+possible to create finite and infinite generators.
+
+Here is an example of a finite generator that takes a string as an input, splits
+it using whitespace as delimiters, strips out punctuation, converts every word
+to lowercase, and yields each word on successive iterations.
+
+```javascript
+const wordGenerator = function * (string) {
+  const words = string.split(/\s+/)
+                      .map(word => word.replace(/\W+/, ''))
+                      .map(word => word.toLowerCase())
+
+  for (const word of words) {
+    yield word
+  }
+}
+
+const words = wordGenerator('Hello, World!  This is a finite generator.')
+
+let word = words.next()
+
+do {
+  console.log(word.value)
+
+  word = words.next()
+} while (!word.done)
+```
+
+Here is an example of an infinite generator that returns natural numbers on each
+iteration.
+
+```javascript
+const naturalNumberGenerator = function * () {
+  let number = 1
+
+  while (true) {
+    yield number++
+  }
+}
+
+const naturalNumbers = naturalNumberGenerator()
+
+let naturalNumber = naturalNumbers.next()
+
+for (let i = 0; i < 10; i++) {
+  console.log(naturalNumber.value)
+
+  naturalNumber = naturalNumbers.next()
+}
+```
+
 ## Requirements
 
-Describe behavioral requirements as you'll be using them in tests. That is,
-list requirements in language that describes how the written code will be used,
-not how it will be written, with the exception of constraints you may wish to
-place on implementation. It's a good idea to include the below paragraph
-verbatim.
+Write a finite generator function, `fizzBuzzGenerator`, that, beginning from
+1, yields 'Fizz' if the number is divisible by 3, 'Buzz' if the number is
+divisible by 5, 'Fizz Buzz' if the number is divisible by 15, and the number
+itself if none of the previous conditions are met. The generator function should
+take a parameter, `max`, that determines the maximum value that should be
+yielded. Assume that all inputs are valid (natural numbers).
 
 You should be running `grunt nag` before diagnosing any bugs, since it finds
 some of the most common sources of errors. After `grunt nag` passes, you should
-run `grunt test` to run the included tests. Tests will tell you whether of not
+run `grunt test` to run the included tests. Tests will tell you whether or not
 you've met these requirements.
 
 ## Bonus
 
-Bonuses are described after the requirements, if included. They should be worked
-on **only after** passing requirements.
-
-Sometimes, we ask questions that promote thinking critically about code.
+Modify `fizzBuzzGenerator` so that it acts as an infinite generator if no
+argument is passed in. To run the test for this bonus, open
+`spec/challenge.spec.js` and change `xdescribe` to `describe` on line 45.
 
 ## Tasks
 
